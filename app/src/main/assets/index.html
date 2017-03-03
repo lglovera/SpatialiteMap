@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XYZ</title>
+    <link rel="stylesheet" href="file:///android_asset/libs/ol_css.css" type="text/css">
+    <script src="file:///android_asset/libs/ol_js.js"></script>
+</head>
+<body>
+<div id="map" class="map"></div>
+<script>
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Tile({
+            source: new ol.source.XYZ({
+              url: 'file:///mnt/external_sd/cna/{z}/{x}/{-y}.png'
+            })
+          })
+        ],
+        view: new ol.View({
+          projection: 'EPSG:4326',
+          center: [-60.5921361481, -34.3531557452],
+          zoom: 5
+        })
+      });
+    </script>
+</body>
+</html>
